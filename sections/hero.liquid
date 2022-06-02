@@ -1,0 +1,131 @@
+{% comment %}
+===============
+Section to display the homepage hero and CTA content
+===============
+{% endcomment %}
+<div class="hero-container relative text-white">
+  {% comment %}
+  ===============
+  mobile image
+  ===============
+  {% endcomment %}
+  {% if section.settings.image != blank %}
+    {{ section.settings.image | image_url: width: 2000 | image_tag: class: 'md:hidden' }}
+  {% else %}
+    <img src="https://via.placeholder.com/400x400" alt="Placeholder Mobile Image" class="md:hidden" width="400" height="400">
+  {% endif %}
+  
+  {% comment %}
+  ===============
+  desktop image
+  ===============
+  {% endcomment %}
+  {% if section.settings.image_desktop != blank %}
+    {{ section.settings.image_desktop | image_url: width: 2000 | image_tag: class: 'hidden md:block' }}
+  {% else %}
+    <img src="https://via.placeholder.com/1600x900" alt="Placeholder Desktop Image" class="hidden md:block" width="1600" height="900"/>
+  {% endif %}
+  <div class="hero-content__wrapper">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'heading' %}
+        <div class="font-ogg text-6xl leading-[68px] md:text-8xl md:leading-[113px]">
+          {{ block.settings.heading }}
+        </div>
+      {% when 'subheading' %}
+        {{ block.settings.subheading }}
+      {% when 'details' %}
+        <div class="uppercase">
+          {{ block.settings.details }}
+        </div>
+      {% when 'button' %}
+        <div>
+          <a href="{{ block.settings.link }}" class="inline-block bg-white text-black uppercase text-center py-3 px-12">
+            <span class="md:hidden">{{ block.settings.button_text }}</span>
+            <span class="hidden md:inline-block">{{ block.settings.button_text_desktop }}</span>
+          </a>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (mobile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image (desktop)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Bliss up for <em>Bliss</em>tober</p>"
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "<p>For a limited time, bundle your bliss and save.</p>"
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "name": "Details",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "details",
+          "label": "details",
+          "default": "<p>(1x High Rhode, 1x Dream Light, and a 20-Pack of Kin Spritz.)</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button/Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text (mobile)",
+          "default": "Shop Dream Light"
+        },
+        {
+          "type": "text",
+          "id": "button_text_desktop",
+          "label": "Button Text (desktop)",
+          "default": "$149 (5% off)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Image/Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --header-height: 50px;
+}
+
+@media screen and (min-width: theme("screens.md")) {
+  :root {
+    --header-height: 80px;
+  }
+}
+
+button {
+  @apply p-4 select-none;
+}
+button:active {
+  @apply transform translate-x-px translate-y-px;
+}
+
+.hero-content__wrapper {
+  @apply absolute;
+  @apply bottom-7 inset-x-5 md:bottom-auto md:inset-20;
+  @apply md:h-full;
+  @apply flex flex-col justify-center;
+  @apply text-center md:text-left;
+  @apply transform md:-translate-y-[var(--header-height)];
+}

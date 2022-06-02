@@ -1,0 +1,19 @@
+<header class="flex justify-between items-center w-full p-4 text-white">
+  <button>Menu</button>
+  {% if template.name == 'index' %}
+    <h1>{{ shop.name }}</h1>
+  {% else %}
+    <div>{{ shop.name }}</div>
+  {% endif %}
+  <button>Cart</button>
+
+</header>
+{% schema %}
+{
+  "name": "Header",
+  "class": "site-header absolute h-12 absolute top-0 left-0 right-0 z-10",
+  "settings": [
+
+  ]
+}
+{% endschema %}

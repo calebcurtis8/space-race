@@ -1,0 +1,16 @@
+{
+  "name": "space-race",
+  "version": "1.0.0",
+  "description": "Development test for Lunar Solar Group Space Race Senior Developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "login": "shopify login --store=space-race-kin.myshopify.com",
+    "start": "shopify theme serve & npx tailwindcss -i ./styles/main.css -o ./assets/main.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
