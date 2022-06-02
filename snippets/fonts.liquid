@@ -18,8 +18,15 @@
     font-display: swap;
    }
   @font-face {
-    font-family: 'Univers';
-    src: url("https://kin-website-fonts.s3.amazonaws.com/3562B4_2_0.woff2") format("woff2");
+    font-family: 'Univers Extended';
+    src: url("{{ "UniversExt.woff2 " | asset_url }}") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    /* IE9 Compat Modes */ }
+  @font-face {
+    font-family: 'Univers Extended';
+    font-weight: 700;
+    src: url("{{ "UniversExtBlack.woff2 " | asset_url }}") format("woff2");
     font-display: swap;
     /* IE9 Compat Modes */ }
   @font-face {
@@ -33,23 +40,16 @@
     font-display: swap;
   }
   @font-face {
-    font-family: 'Univers Condensed Regular';
-    src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Univers-Condensed-Regular/UniversCondensedRegular.woff2") format("woff2"); }
-  @font-face {
-    font-family: 'Univers Extended Bold';
-    src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Univers-Ext-Bold/UniversExtBold.woff2") format("woff2");
-    font-display: swap;
-    /* IE9 Compat Modes */ }
+    font-family: 'Univers Condensed';
+    font-weight: 400;
+    src: url("{{ 'UniversCondensedRegular.woff2' | asset_url }}") format("woff2"); }
+
   @font-face {
     font-family: 'Univers Extended Regular';
     src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Univers-Extended-Regular/UniversExtendedRegular.woff2") format("woff2");
     font-display: swap;
     /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Univers Extended Black';
-    src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Unvers-Ext-Black/UniversExtBlack.woff2") format("woff2");
-    font-display: swap;
-    /* IE9 Compat Modes */ }
+
   @font-face {
     font-family: 'Univers 45 light';
     src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Univers-45-light.woff2") format("woff2");
@@ -64,9 +64,5 @@
     src: url("https://kin-website-fonts.s3.amazonaws.com/OggTextBookItalic.woff2") format("woff2");
     font-display: swap;
     /* IE9 Compat Modes */ }
-  @font-face {
-    font-family: 'Univers Extended Black';
-    src: url("https://kin-website-fonts.s3.amazonaws.com/Univers/Unvers-Ext-Black/UniversExtBlack.woff2") format("woff2");
-    font-display: swap;
-    /* IE9 Compat Modes */ }
+
 </style>

@@ -3,7 +3,7 @@
 Section to display the homepage hero and CTA content
 ===============
 {% endcomment %}
-<div class="hero-container relative text-white">
+<div class="relative text-white hero-container">
   {% comment %}
   ===============
   mobile image
@@ -29,18 +29,20 @@ Section to display the homepage hero and CTA content
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'heading' %}
-        <div class="font-ogg text-6xl leading-[68px] md:text-8xl md:leading-[113px]">
+        <div class="max-w-lg font-ogg text-6xl leading-[68px] md:text-8xl md:leading-[113px] mb-5">
           {{ block.settings.heading }}
         </div>
       {% when 'subheading' %}
-        {{ block.settings.subheading }}
+        <div class="font-univers-extended mb-5 max-w-[275px] text-base leading-[25px] text-offwhite">
+          {{ block.settings.subheading }}
+        </div>
       {% when 'details' %}
-        <div class="uppercase">
+        <div class="font-univers-condensed text-[11px] text-offwhite uppercase mb-3 tracking-[0.458333px]">
           {{ block.settings.details }}
         </div>
       {% when 'button' %}
         <div>
-          <a href="{{ block.settings.link }}" class="inline-block bg-white text-black uppercase text-center py-3 px-12">
+          <a href="{{ block.settings.link }}" class="inline-block px-12 py-3 text-sm text-center uppercase bg-white font-univers-extended font-bold text-darkgray tracking-[1.6667px] leading-base">
             <span class="md:hidden">{{ block.settings.button_text }}</span>
             <span class="hidden md:inline-block">{{ block.settings.button_text_desktop }}</span>
           </a>

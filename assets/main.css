@@ -621,6 +621,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   clear: none;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -731,6 +739,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-full {
   width: 100%;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-\[275px\] {
+  max-width: 275px;
 }
 
 .flex-shrink {
@@ -1724,14 +1740,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .px-1\.5 {
@@ -1796,6 +1812,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: Ogg, serif;
 }
 
+.font-univers-condensed {
+  font-family: Univers Condensed, sans-serif;
+}
+
 .font-\[\'some_font\'\2c sans-serif\] {
   font-family: 'some font',sans-serif;
 }
@@ -1804,14 +1824,36 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: "some font",sans-serif;
 }
 
+.font-univers-extended {
+  font-family: Univers Extended, sans-serif;
+}
+
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-\[11px\] {
+  font-size: 11px;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .uppercase {
@@ -1886,14 +1928,43 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 68px;
 }
 
+.leading-\[25px\] {
+  line-height: 25px;
+}
+
+.leading-\[14px\] {
+  line-height: 14px;
+}
+
+.leading-\[\.85rem\] {
+  line-height: .85rem;
+}
+
+.leading-\[\.875rem\] {
+  line-height: .875rem;
+}
+
+.tracking-\[0\.458333px\] {
+  letter-spacing: 0.458333px;
+}
+
+.tracking-\[1\.6667px\] {
+  letter-spacing: 1.6667px;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
+.text-offwhite {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(249 248 245 / var(--tw-text-opacity));
+}
+
+.text-darkgray {
+  --tw-text-opacity: 1;
+  color: rgb(35 35 35 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2294,7 +2365,17 @@ button:active {
 .hero-content__wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero-content__wrapper {
+    align-items: flex-start;
+  }
+}
+
+.hero-content__wrapper {
   text-align: center;
 }
 

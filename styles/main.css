@@ -28,7 +28,7 @@ button:active {
   @apply absolute;
   @apply bottom-7 inset-x-5 md:bottom-auto md:inset-20;
   @apply md:h-full;
-  @apply flex flex-col justify-center;
+  @apply flex flex-col justify-center items-center md:items-start;
   @apply text-center md:text-left;
   @apply transform md:-translate-y-[var(--header-height)];
 }
