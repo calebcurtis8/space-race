@@ -9,7 +9,7 @@
     {% if cart.item_count > 0 %}
       <div class="flex flex-col flex-grow">
       {% for line_item in cart.items %}
-        <div class="cart-item flex mb-6">
+        <div class="flex mb-6 cart-item">
           {{ line_item.image | image_url: width: 200 | image_tag: class: 'w-10 mr-4' }}
           <div class="flex flex-col flex-grow">
             <span class="text-2xl font-ogg">{{ line_item.product.title }}</span>
@@ -44,7 +44,6 @@
     <div class="relative w-full h-10 rounded-[3px] bg-black border-2 border-black mb-11">
       <div class="absolute -bottom-11 left-1/2 transform -translate-x-1/2 h-0 border-b border-black w-[121px]"></div>
     </div>
-    <div class="">
     {% else %}
       {% comment %}
         ===============
