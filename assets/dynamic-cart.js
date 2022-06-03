@@ -21,10 +21,12 @@ class DynamicCart extends HTMLElement {
   }
 
   disconnectedCallback() {
+    // removes generic event listeners when element is removed/replaced
     this.buttons.forEach(button => button.removeEventListener('click', this.handleAdd))
   }
 
   add(e) {
+    // adds an item to the cart from a button
     const button = e.target.closest('[data-add-to-cart]')
     const variant = parseInt(button.getAttribute('data-variant-id'))
     const body = {
@@ -43,6 +45,7 @@ class DynamicCart extends HTMLElement {
   }
 
   remove(e) {
+    // follows remove link from cart item and updates the cart display
     e.preventDefault()
     this.freeze()
     const link = e.target.closest('a')
@@ -52,6 +55,7 @@ class DynamicCart extends HTMLElement {
   }
 
   update(e) {
+    // responds to changes in quantity in the cart
     const input = e.target.closest('[data-quantity]')
     const body = { updates: { }, sections: `${this.getAttribute('section')}` }
     body.updates[input.getAttribute('data-key')] = parseInt(input.value)
@@ -67,6 +71,7 @@ class DynamicCart extends HTMLElement {
   }
 
   getCart() {
+    // fetches the cart from the Shopify Section Rendering API and prepares it for the replace function
     return fetch(window.Shopify.routes.root + `?sections=${this.getAttribute('section')}`)
       .then(response => response.json())
       .then(json => {
@@ -75,6 +80,7 @@ class DynamicCart extends HTMLElement {
   }
 
   replace(e) {
+    // replace our section markup with fresh markup from the Cart API response
     const section = e.sections[this.getAttribute('section')]
     const refreshedState = new DOMParser().parseFromString(section, 'text/html').querySelector('dynamic-cart')
     this.replaceWith(refreshedState)
@@ -87,6 +93,7 @@ class DynamicCart extends HTMLElement {
   }
 
   thaw() {
+    // removes the opacity and re-enables clicks
     this.classList.remove('opacity-50', 'pointer-events-none')
   }
 }
