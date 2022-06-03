@@ -20,16 +20,18 @@ class SlidingDrawer extends HTMLElement {
 
   open() {
     this.setAttribute('aria-expanded', 'true')
+    this.setAttribute('aria-hidden', 'false')
     document.addEventListener('click', this.handleOutside)
   }
 
   close() {
     this.setAttribute('aria-expanded', 'false')
+    this.setAttribute('aria-hidden', 'true')
     document.removeEventListener('click', this.handleOutside)
   }
 
   escapeKey(e) {
-    if (e.key !== 'Escape') return
+    if (e.key.toUpperCase() !== 'ESCAPE') return
     if (this.isOpen) this.close()
   }
 
