@@ -1,0 +1,6 @@
+:root {
+  --header-height: 50px;
+  @media screen and (min-width: theme("screens.md")) {
+    --header-height: 80px;
+  }
+}

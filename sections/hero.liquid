@@ -42,10 +42,14 @@ Section to display the homepage hero and CTA content
         </div>
       {% when 'button' %}
         <div>
-          <a href="{{ block.settings.link }}" class="inline-block px-12 py-3 text-sm text-center uppercase bg-white font-univers-extended font-bold text-darkgray tracking-[1.6667px] leading-base">
+          <button
+            aria-controls="DrawerCart"
+            data-add-to-cart
+            data-variant-id="{{ block.settings.product.selected_or_first_available_variant.id }}"
+            class="inline-block px-12 py-3 text-sm text-center uppercase bg-white font-univers-extended font-bold text-darkgray tracking-[1.6667px] leading-base">
             <span class="md:hidden">{{ block.settings.button_text }}</span>
             <span class="hidden md:inline-block">{{ block.settings.button_text_desktop }}</span>
-          </a>
+          </button>
         </div>
     {% endcase %}
   {% endfor %}
@@ -119,6 +123,12 @@ Section to display the homepage hero and CTA content
           "id": "button_text_desktop",
           "label": "Button Text (desktop)",
           "default": "$149 (5% off)"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Adds (1) to cart when button is clicked"
         }
       ]
     }

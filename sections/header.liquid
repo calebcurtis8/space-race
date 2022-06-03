@@ -1,19 +1,73 @@
-<header class="flex justify-between items-center w-full p-4 text-white">
-  <button>Menu</button>
+{% render 'menu-drawer' %}
+<header class="relative flex items-center justify-between w-full p-4 text-white md:pr-8">
+  <button aria-label="Open Menu" aria-controls="DrawerMenu" class="p-4">
+    {% render 'icon-menu' %}
+  </button>
   {% if template.name == 'index' %}
-    <h1>{{ shop.name }}</h1>
+    <h1 class="absolute-center">
   {% else %}
-    <div>{{ shop.name }}</div>
+    <div class="absolute-center">
   {% endif %}
-  <button>Cart</button>
-
+      <a href="/">
+      {{ settings.logo_light | image_url: width: 200 | image_tag: class: 'w-14 md:w-20' }}
+      <span class="sr-only">
+        {{ shop.name }}
+      </span>
+      </a>
+  {% if template.name == 'index' %}
+    </h1>
+  {% else %}
+    </div>
+  {% endif %}
+  <button aria-label="Open Shopping Cart" aria-controls="DrawerCart" class="p-4">
+    {% render 'icon-cart' %}
+  </button>
 </header>
 {% schema %}
 {
   "name": "Header",
   "class": "site-header absolute h-12 absolute top-0 left-0 right-0 z-10",
-  "settings": [
-
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu Item",
+      "settings": [
+        {
+          "type": "html",
+          "id": "title",
+          "label": "Menu Item Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Menu Item URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Menu Item Image",
+          "info": "Shows on hover"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu (mobile)",
+          "info": "Displays at the bottom of the menu"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_desktop",
+          "label": "Menu (desktop)",
+          "info": "Displays at the bottom of the menu"
+        }
+      ]
+    }
   ]
 }
 {% endschema %}

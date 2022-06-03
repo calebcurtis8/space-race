@@ -31,10 +31,13 @@
     </head>
     <body>
       {% section 'header' %}
+      {% section 'cart' %}
       <main id="MainContent" role="main" tabindex="-1">
         {{ content_for_layout }}
       </main>
       
+      <script src="{{ 'sliding-drawer.js' | asset_url }}" defer></script>
+      <script src="{{ 'dynamic-cart.js' | asset_url }}" defer></script>
+      <script src="{{ 'quantity-buttons.js' | asset_url }}" defer></script>
     </body>
   </html>
-  

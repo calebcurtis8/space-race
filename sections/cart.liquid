@@ -1,0 +1,61 @@
+<sliding-drawer id="DrawerCart" class="w-full p-8 right md:w-1/3" aria-expanded="false">
+  <div class="relative flex items-center justify-end py-4">
+    {{ settings.logo_dark | image_url: width: 200 | image_tag: class: 'absolute-center w-14' }}
+    <button aria-controls="DrawerCart" aria-label="Close Shopping Cart">
+      {% render 'icon-arrow' %}
+    </button>
+  </div>
+  <dynamic-cart section="{{ section.id }}" class="block mt-24">
+    {% if cart.item_count > 0 %}
+      {% for line_item in cart.items %}
+        <div class="flex mb-6">
+          {{ line_item.image | image_url: width: 200 | image_tag: class: 'w-10 mr-4' }}
+          <div class="flex flex-col flex-grow">
+            <span class="text-2xl font-ogg">{{ line_item.product.title }}</span>
+            <span class="font-univers-extended text-sm leading-[20px] mb-2">{{ line_item.variant.title }}, {{ line_item.variant.price | money }}</span>
+            <quantity-buttons class="flex w-8 space-x-1">
+              <button data-decrement>&ndash;</button>
+              <input class="text-sm font-bold font-univers-extended max-w-[1rem] text-center" type="number" min="0" data-quantity data-key="{{ line_item.key }}" value="{{ line_item.quantity }}">
+              <button data-increment>+</button>
+            </quantity-buttons>
+          </div>
+          <div class="flex items-center">
+            <a 
+              href="{{ line_item.url_to_remove }}" 
+              aria-label="Remove {{ line_item.title }} from cart"
+              data-remove
+            >
+              {% render 'icon-remove' %}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="flex justify-between border-t-2 py-1.5 subtotal border-t-darkgray">
+        <span class="font-light uppercase font-univers text-[11px]">Subtotal</span>
+        <span class="text-sm font-bold font-univers-extended">{{ cart.total_price | money }}</span>
+      </div>
+    {% else %}
+      {% comment %}
+        ===============
+        empty cart
+        ===============
+      {% endcomment %}
+      <div class="flex items-center justify-center h-full font-ogg text-[40px] leading-[53px]">
+        {{ section.settings.empty_cart }}
+      </div>
+    {% endif %}
+  </dynamic-cart>
+</sliding-drawer>
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "empty_cart",
+      "label": "Empty Cart Message",
+      "default": "<p>Your cart is thirsty.</p>"
+    }
+  ]
+}
+{% endschema %}

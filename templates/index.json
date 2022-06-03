@@ -25,7 +25,8 @@
           "type": "button",
           "settings": {
             "button_text": "Shop Dream Light",
-            "button_text_desktop": "$149 (5% off)"
+            "button_text_desktop": "$149 (5% off)",
+            "product": "high-rhode"
           }
         }
       },

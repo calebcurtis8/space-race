@@ -1,0 +1,6 @@
+button {
+  @apply select-none;
+  &:active {
+    @apply transform translate-x-px translate-y-px;
+  }
+}

@@ -1,0 +1,17 @@
+sliding-drawer {
+  @apply fixed top-0 bottom-0 z-20;
+  @apply bg-lightgray md:bg-white;
+  @apply transform;
+  @apply transition-all;
+  &.left{
+    @apply left-0;
+    @apply -translate-x-full;
+  }
+  &.right{
+    @apply right-0;
+    @apply translate-x-full;
+  }
+  &[aria-expanded="true"]{
+    @apply translate-x-0;
+  }
+}

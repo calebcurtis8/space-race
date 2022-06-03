@@ -1,0 +1,40 @@
+<sliding-drawer id="DrawerMenu" class="w-full py-8 md:py-4 left md:w-1/2 px-7" aria-expanded="false">
+  <div class="relative flex items-center justify-start">
+    {{ settings.logo_dark | image_url: width: 200 | image_tag: class: 'absolute-center w-14 md:hidden' }}
+    <button aria-controls="DrawerMenu" aria-label="Close Shopping Cart">
+      {% render 'icon-menu-close' %}
+    </button>
+  </div>
+  <div class="flex flex-col items-center justify-center h-full">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'menu_item' %}
+          <a href="{{ block.settings.url }}" class="group block font-ogg text-[40px] leading-[70px] md:text-6xl md:leading-[90px] hover:underline decoration-1 underline-offset-8">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'w-12 absolute transform -translate-x-full pr-4 opacity-0 group-hover:opacity-100' }}
+            {% endif %}
+            {{ block.settings.title }}
+          </a>
+        {% when 'menu' %}
+          {% assign menu = linklists[block.settings.menu] %}
+          {% assign menu_desktop = linklists[block.settings.menu_desktop] %}
+          <ul class="flex flex-col items-center justify-center text-sm uppercase mt-9 font-univers-extended font-bold leading-[30px] tracking-[1.16667px]">
+          {% for link in menu.links %}
+            <li class="md:hidden">
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+          {% for link in menu_desktop.links %}
+            <li class="hidden md:block">
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+          </ul>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</sliding-drawer>

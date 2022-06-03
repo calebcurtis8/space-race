@@ -1,4 +1,54 @@
 {
   "current": {
+    "logo_light": "shopify:\/\/shop_images\/logo.png",
+    "logo_dark": "shopify:\/\/shop_images\/small_dark.png",
+    "logo": "shopify:\/\/shop_images\/logo.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "64fe0853-536b-4d2a-86e2-b98043d501f5": {
+            "type": "menu_item",
+            "settings": {
+              "title": "<em>D<\/em>ream L<em>i<\/em>ght",
+              "url": "#dream-light",
+              "image": "shopify:\/\/shop_images\/dl_product.png"
+            }
+          },
+          "f593cc57-f242-4726-ad1c-a87e22dead32": {
+            "type": "menu_item",
+            "settings": {
+              "title": "High Rhode",
+              "url": "#high-rhode"
+            }
+          },
+          "33979cab-5a8b-4371-9bfd-716b12b5c4cd": {
+            "type": "menu_item",
+            "settings": {
+              "title": "Kin Spritz",
+              "url": "#kin-spritz"
+            }
+          },
+          "13801f7d-8c67-48f1-88c0-8b6a06425e85": {
+            "type": "menu",
+            "settings": {
+              "menu": "main-menu",
+              "menu_desktop": "menu-desktop"
+            }
+          }
+        },
+        "block_order": [
+          "64fe0853-536b-4d2a-86e2-b98043d501f5",
+          "f593cc57-f242-4726-ad1c-a87e22dead32",
+          "33979cab-5a8b-4371-9bfd-716b12b5c4cd",
+          "13801f7d-8c67-48f1-88c0-8b6a06425e85"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }

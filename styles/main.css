@@ -1,34 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Setup */
+@import './_tailwind';
+@import './_variables';
+@import './_setup';
 
-body {
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-}
+/* Helpers */
+@import './_absolute-center';
 
-:root {
-  --header-height: 50px;
-}
-
-@media screen and (min-width: theme("screens.md")) {
-  :root {
-    --header-height: 80px;
-  }
-}
-
-button {
-  @apply p-4 select-none;
-}
-button:active {
-  @apply transform translate-x-px translate-y-px;
-}
-
-.hero-content__wrapper {
-  @apply absolute;
-  @apply bottom-7 inset-x-5 md:bottom-auto md:inset-20;
-  @apply md:h-full;
-  @apply flex flex-col justify-center items-center md:items-start;
-  @apply text-center md:text-left;
-  @apply transform md:-translate-y-[var(--header-height)];
-}
+/* Elements */
+@import './_button';
+@import './_hero';
+@import './_sliding-drawer';
+@import './_number-inputs';
