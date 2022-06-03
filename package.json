@@ -4,7 +4,7 @@
   "description": "Development test for Lunar Solar Group Space Race Senior Developer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss ./styles/main.css -o ./assets/main.css",
     "login": "shopify login --store=space-race-kin.myshopify.com",
     "pull": "shopify theme pull",
     "start": "shopify theme serve & postcss ./styles/main.css -o ./assets/main.css --watch"
@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.10",
     "eslint": "^8.16.0",
     "eslint-config-standard": "^17.0.0",
     "postcss": "^8.4.14",

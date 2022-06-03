@@ -1,5 +1,11 @@
 module.exports = {
-  content: ['./**/*.{liquid,js}'],
+  content: [
+    './sections/*.liquid',
+    './snippets/*.liquid',
+    './layout/*.liquid',
+    './templates/*.liquid,*.json',
+    './assets/*.js',
+  ],
   theme: {
     fontFamily: {
       univers: ['Univers', 'sans-serif'],
