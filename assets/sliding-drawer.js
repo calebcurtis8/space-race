@@ -1,3 +1,9 @@
+const main = document.querySelector('main')
+
+const classes = {
+  pointerEventsNone: 'pointer-events-none'
+}
+
 class SlidingDrawer extends HTMLElement {
   constructor() {
     super()
@@ -23,12 +29,14 @@ class SlidingDrawer extends HTMLElement {
     this.setAttribute('aria-expanded', 'true')
     this.setAttribute('aria-hidden', 'false')
     document.addEventListener('click', this.handleOutside)
+    main.classList.add(classes.pointerEventsNone)
   }
 
   close() {
     this.setAttribute('aria-expanded', 'false')
     this.setAttribute('aria-hidden', 'true')
     document.removeEventListener('click', this.handleOutside)
+    main.classList.remove(classes.pointerEventsNone)
   }
 
   escapeKey(e) {
