@@ -19,9 +19,9 @@
   {% else %}
     </div>
   {% endif %}
-  <button aria-label="Open Shopping Cart" aria-controls="DrawerCart" class="p-4">
+  <a href="{{ routes.cart_url }}" aria-label="Open Shopping Cart" aria-controls="DrawerCart" class="p-4 button">
     {% render 'icon-cart' %}
-  </button>
+  </a>
 </header>
 {% schema %}
 {

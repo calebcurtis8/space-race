@@ -1,7 +1,7 @@
 class SlidingDrawer extends HTMLElement {
   constructor() {
     super()
-    this.buttons = document.querySelectorAll(`button[aria-controls="${this.id}"]`)
+    this.buttons = document.querySelectorAll(`[aria-controls="${this.id}"]`)
     this.handleOutside = this.clickOutside.bind(this)
   }
 
@@ -14,7 +14,8 @@ class SlidingDrawer extends HTMLElement {
     document.addEventListener('keyup', this.escapeKey.bind(this))
   }
 
-  toggle() {
+  toggle(e) {
+    e.preventDefault()
     this.isOpen ? this.close() : this.open()
   }
 
@@ -36,7 +37,7 @@ class SlidingDrawer extends HTMLElement {
   }
 
   clickOutside(e) {
-    if (e.target.closest(`button[aria-controls="${this.id}"]`) || this.contains(e.target)) return
+    if (e.target.closest(`[aria-controls="${this.id}"]`) || this.contains(e.target)) return
     this.close()
   }
 }
